@@ -6,7 +6,8 @@ ENV NGINX_VERSION nginx-1.17.8
 ENV NGINX_RTMP_MODULE_VERSION 1.2.1
 
 # Install dependencies
-RUN sed -i apk add --no-cache ca-certificates openssl openssl-dev gcc g++ pcre-dev zlib-dev make
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories && \
+    apk add --no-cache ca-certificates openssl openssl-dev gcc g++ pcre-dev zlib-dev make
 
 # Download and decompress Nginx
 RUN mkdir -p /tmp/build/nginx && \
@@ -45,7 +46,8 @@ RUN cd /tmp/build/nginx/${NGINX_VERSION} && \
 FROM alpine:latest
 
 # Install dependencies
-RUN apk add --no-cache ca-certificates openssl pcre
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories && \
+    apk add --no-cache ca-certificates openssl pcre
 
 # Copy files from builder
 COPY --from=builder /usr/local/nginx /usr/local/nginx
