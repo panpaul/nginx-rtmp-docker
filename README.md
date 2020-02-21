@@ -1,3 +1,7 @@
+A slightly modified version.
+
+It uses alpine as the base image to reduce image size.
+
 ## Supported tags and respective `Dockerfile` links
 
 * [`latest` _(Dockerfile)_](https://github.com/tiangolo/nginx-rtmp-docker/blob/master/Dockerfile)
