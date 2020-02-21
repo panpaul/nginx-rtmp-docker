@@ -6,7 +6,7 @@ ENV NGINX_VERSION nginx-1.17.8
 ENV NGINX_RTMP_MODULE_VERSION 1.2.1
 
 # Install dependencies
-RUN sed -i apk add --no-cache ca-certificates openssl openssl-dev gcc g++ pcre-dev zlib-dev make
+RUN apk add --no-cache ca-certificates openssl openssl-dev gcc g++ pcre-dev zlib-dev make
 
 # Download and decompress Nginx
 RUN mkdir -p /tmp/build/nginx && \
